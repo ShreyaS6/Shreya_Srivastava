@@ -77,3 +77,18 @@ exitb = Button(root,text = "Exit", width = 7, bd =5, command = root.quit)
 exitb.place(x=175, y = 370)
 
 root.mainloop()
+
+''' Fetching_data From databse'''
+
+import cx_Oracle
+con = cx_Oracle.connect("system/9984368088@localhost:1521/xe")
+cur = con.cursor()
+stmt = 'select * from prac_10'
+cur.execute(stmt)
+result = cur.fetchall()
+print("Name Mother's_Name  Father's_Name DOB Address Pin_code Departmen Branch Contact Email")
+
+for data in result:
+    print(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9])
+
+
